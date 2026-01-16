@@ -14,7 +14,7 @@ if (Get-Module -Name PSReadLine -ErrorAction SilentlyContinue) {
     Set-PSReadLineKeyHandler -Key Ctrl+c -ScriptBlock {
         $line = $null; $cursor = $null
         [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
-        if ($line.Length -gt 0) {
+        if ($null -ne $line -and $line.Length -gt 0) {
             [Microsoft.PowerShell.PSConsoleReadLine]::CancelLine()
         } else {
             Write-Host "`n[Ctrl+C trapped] Use 'exit' to quit" -ForegroundColor Yellow

@@ -1,0 +1,14 @@
+﻿# Ignoruj pliki z sekretami (na wszelki wypadek)
+.env
+.ai.env
+*.key
+*.token
+
+# Ignoruj śmieci systemowe
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Ignoruj logi i cache
+*.log
+.history/

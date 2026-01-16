@@ -1,5 +1,14 @@
-# Skrypt przywracajπcy úrodowisko (uruchom na nowym kompie)
+Ôªø# === SYSTEM RESTORE ===
 $userBin = "$env:USERPROFILE\bin"
-Copy-Item -Path ".\bin" -Destination "$env:USERPROFILE" -Recurse -Force
+
+# Kopiowanie binarek
+if (Test-Path ".\bin") {
+    Write-Host "‚è≥ Przywracanie silnika..." -ForegroundColor Cyan
+    Copy-Item -Path ".\bin" -Destination "$env:USERPROFILE" -Recurse -Force
+}
+
+# Kopiowanie profilu
+Write-Host "‚è≥ Przywracanie profilu..." -ForegroundColor Cyan
 Copy-Item -Path ".\profile.ps1" -Destination $PROFILE -Force
-Write-Host "? årodowisko przywrÛcone! Zrestartuj PowerShell." -ForegroundColor Green
+
+Write-Host "‚úÖ ≈örodowisko przywr√≥cone! Zrestartuj PowerShell." -ForegroundColor Green
